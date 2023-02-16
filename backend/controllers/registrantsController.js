@@ -7,7 +7,12 @@ const createRegistrant = async (req, res) => {
     //adding document to database
     try {
         const registrant = await Registrants.create({firstName, lastName, phoneNumber, age, country})
-        res.status(201).json(registrant)
+        res.status(201).json({
+            id: registrant._id,
+            FirstName: registrant.firstName,
+            LastName: registrant.lastName,
+            RegisteredAt: registrant.createdAt
+        })
     } catch (error) {
         res.status(400).json({error:error.message})
     }
