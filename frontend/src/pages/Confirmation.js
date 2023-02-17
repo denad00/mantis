@@ -17,7 +17,7 @@ const Confirmation = () => {
 
     useEffect(() => {
         fetchFlag()
-    }, []);
+    });
 
     //get country flag
     const fetchFlag = async () => {
@@ -39,28 +39,28 @@ const Confirmation = () => {
             <Table striped bordered>
                 <tbody>
                     <tr>
-                        <td>First Name</td>
+                        <td><span>First Name</span></td>
                         <td>{location.state.firstName}</td>
                     </tr>
                     <tr>
-                        <td>Last Name</td>
+                        <td><span>Last Name</span></td>
                         <td>{location.state.lastName}</td>
                     </tr>
                     <tr>
-                        <td>Phone Number</td>
+                        <td><span>Phone Number</span></td>
                         <td>{location.state.phone}</td>
                     </tr>
                     <tr>
-                        <td>Email</td>
+                        <td><span>Email</span></td>
                         <td>{location.state.email}</td>
                     </tr>
                     <tr>
-                        <td>Age</td>
+                        <td><span>Age</span></td>
                         <td>{location.state.age}</td>
                     </tr>
                     <tr>
-                        <td>Country</td>
-                        <td><Image crossorigin = "anonymous" src={flag} thumbnail/></td>
+                        <td><span>Country</span></td>
+                        <td><Image crossOrigin = "anonymous" src={flag} thumbnail/></td>
                     </tr>
                 </tbody>
             </Table>

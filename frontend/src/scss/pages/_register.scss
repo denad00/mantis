@@ -1,0 +1,61 @@
+.App {
+    margin: 10vw 5vw 10vw 5vw;
+
+    @media screen and (min-width: $screen-desktop){
+        margin: 5vw 5vw 5vw 5vw;
+    }
+}
+
+.register {
+    h1 {
+        @include fontSize(36);
+        text-align: center;
+        margin-bottom: 5vh;
+    }
+
+    h2 {
+        @include fontSize(24);
+    }
+
+    .register-form {
+        h2 {
+            padding-bottom: 2vh;
+            text-align: center;
+        }
+        .form-input {
+            padding-bottom: 4vh;
+        }
+    
+        span {
+            display: flex;
+            gap: 1rem;
+    
+            input {
+                width: 100%;
+            }
+        }
+    
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+    @media screen and (min-width: $screen-tablet){
+        .register-form{
+            max-width:75%;
+            margin: auto;
+        }
+    }
+
+    @media screen and (min-width: $screen-desktop){
+        .register-form{
+            max-width:50%;
+            margin: auto;
+        }
+    }
+
+}

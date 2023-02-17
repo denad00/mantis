@@ -12,37 +12,34 @@ import { useNavigate } from 'react-router-dom';
 const RegisterForm = () => {
     const [validated, setValidated] = useState(false);
     const [age, setAge] = useState(18);
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
-    const [country, setCountry] = useState('');
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [country, setCountry] = useState("");
     const minAge = 18;
     const maxAge = 99;
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const checkForm = (event) => {
         const form = event.currentTarget;
-        if (form.checkValidity() === false){
+        
+        if (form.reportValidity() === false){
             event.preventDefault();
-            event.stopPropogation();
-        } else if (validated === true){
-            navigate(`/confirmation`,{state:{firstName: firstName, lastName: lastName, phone: phone, email: email, age: age, country: country}})
+            event.stopPropagation();
+        } else if (form.reportValidity() === true ){
+            goToConfirmationPage();
         }
+    }
 
-        setValidated(true);
-
-        // } else{
-        //     setValidated(true);
-        //     console.log(firstName, lastName, phone, email, age, country)
-        //     navigate(`/confirmation`,{state:{firstName: firstName, lastName: lastName, phone: phone, email: email, age: age, country: country}})
-        // }
+    const goToConfirmationPage = () => {
+        navigate(`/confirmation`,{state:{firstName: firstName, lastName: lastName, phone: phone, email: email, age: age, country: country}})
     }
 
     return(
         <div className="register-form">
-            <Form validated={validated}>
+            <Form noValidate validated={validated} onSubmit={checkForm}>
                 <h2>Please fill out this form to register</h2>
                 <Form.Group className="form-input" controlId="formFirstName">
                     <Form.Label>First Name</Form.Label>
@@ -116,7 +113,7 @@ const RegisterForm = () => {
                         feedbackType="invalid"
                     />
                 </Form.Group>
-                <Button type="submit" onClick={checkForm} variant="success">Submit</Button>
+                <Button type="submit" variant="success">Submit</Button>
             </Form>
         </div>
     )
