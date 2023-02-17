@@ -1,9 +1,9 @@
 //icon import
-import {FaRegCheckCircle} from 'react-icons/fa'
+import {FaRegCheckCircle} from 'react-icons/fa';
 
 //imports from React Bootstrap
 import Table from 'react-bootstrap/Table';
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
 
 //imports from react-router-dom
 import { useLocation } from 'react-router-dom';
@@ -16,18 +16,14 @@ const Confirmation = () => {
     const [flag, setFlag] = useState(null)
 
     useEffect(() => {
-        const getFlag = async() => {
-            const res = await fetchFlag();
-            setFlag(res);
-        }
-        getFlag();
+        fetchFlag()
     }, [])
 
     //get country flag
     const fetchFlag = async () => {
         const response = await fetch(`https://countryflagsapi.com/png/${location.state.country}`)
-        const data = response.json()
-        console.log(data);
+        const data = response.url
+        setFlag(data);
 
         if(response.ok){
             return data
@@ -68,7 +64,7 @@ const Confirmation = () => {
                     </tr>
                     <tr>
                         <td>Country</td>
-                        <td><Image src={flag}/></td>
+                        <td><Image crossorigin = "anonymous" src={flag} thumbnail/></td>
                     </tr>
                 </tbody>
             </Table>
