@@ -12,6 +12,8 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const Confirmation = () => {
+
+    //variables
     const location = useLocation();
     const [flag, setFlag] = useState(null)
 
@@ -31,7 +33,7 @@ const Confirmation = () => {
     }
 
     return(
-        <div className="confirmation">
+        <div className="confirmation" data-testid="confirmation">
             <FaRegCheckCircle />
             <h2>Thank you!</h2>
             <p>You have been registered for this event</p>

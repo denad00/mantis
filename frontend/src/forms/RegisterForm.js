@@ -10,6 +10,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
+
+    //variables
     const [validated, setValidated] = useState(false);
     const [age, setAge] = useState(18);
     const [firstName, setFirstName] = useState("");
@@ -22,6 +24,7 @@ const RegisterForm = () => {
 
     const navigate = useNavigate();
 
+    //validate form input to ensure all required fields are met
     const checkForm = (event) => {
         const form = event.currentTarget;
         
@@ -33,12 +36,13 @@ const RegisterForm = () => {
         }
     }
 
+    //move to confirmation page
     const goToConfirmationPage = () => {
         navigate(`/confirmation`,{state:{firstName: firstName, lastName: lastName, phone: phone, email: email, age: age, country: country}})
     }
 
     return(
-        <div className="register-form">
+        <div className="register-form" data-testid="registerForm">
             <Form noValidate validated={validated} onSubmit={checkForm}>
                 <h2>Please fill out this form to register</h2>
                 <Form.Group className="form-input" controlId="formFirstName">
