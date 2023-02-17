@@ -42,7 +42,7 @@ const RegisterForm = () => {
     }
 
     return(
-        <div className="register-form" data-testid="registerForm">
+        <div className="register-form" role="form">
             <Form noValidate validated={validated} onSubmit={checkForm}>
                 <h2>Please fill out this form to register</h2>
                 <Form.Group className="form-input" controlId="formFirstName">
