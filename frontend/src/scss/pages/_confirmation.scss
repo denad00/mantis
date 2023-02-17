@@ -1,0 +1,35 @@
+.confirmation {
+    svg {
+        color: green;
+        @include fontSize(32);
+        display: flex;
+        margin: auto;
+    }
+
+    h2 {
+        text-align: center;
+        color: green;
+    }
+
+    p:first-of-type {
+        text-align: center;
+        margin-bottom: 5vh;
+    }
+
+    p:nth-of-type(2){
+        margin-bottom: 0;
+    }
+
+    span{
+        font-weight: bold;
+    }
+
+    @media screen and (min-width: $screen-tablet) {
+            max-width:75%;
+            margin: auto;
+    }
+
+    @media screen and (min-width: $screen-desktop){
+        max-width: 50%;
+    }
+}
