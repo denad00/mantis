@@ -7,6 +7,9 @@ const createRegistrant = async (req, res) => {
     //adding document to database
     try {
         const registrant = await Registrants.create({firstName, lastName, phoneNumber, age, country})
+        if (age < 18 ){
+            res.status(400).json({error: "must be over the age of 18"})
+        }
         res.status(201).json({
             id: registrant._id,
             FirstName: registrant.firstName,
