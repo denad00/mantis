@@ -17,7 +17,7 @@ const Confirmation = () => {
 
     useEffect(() => {
         fetchFlag()
-    }, [])
+    }, []);
 
     //get country flag
     const fetchFlag = async () => {
@@ -35,12 +35,8 @@ const Confirmation = () => {
             <FaRegCheckCircle />
             <h2>Thank you!</h2>
             <p>You have been registered for this event</p>
-            <Table>
-                <thead>
-                    <tr>
-                        <th>The following information has been saved:</th>
-                    </tr>
-                </thead>
+            <p>The following information has been saved:</p>
+            <Table striped bordered>
                 <tbody>
                     <tr>
                         <td>First Name</td>
